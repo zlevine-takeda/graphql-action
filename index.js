@@ -2,6 +2,8 @@ const { inspect } = require("util");
 const yaml = require("js-yaml");
 const core = require("@actions/core");
 const { Octokit } = require("@octokit/action");
+const { writeFile } = require('fs');
+const path = './payload.json';
 
 main();
 
@@ -20,8 +22,14 @@ async function main() {
     const data = await octokit.graphql(query, variables);
 
     core.info(`< 200 ${Date.now() - time}ms`);
-
-    core.setOutput("data", JSON.stringify(data, null, 2));
+    writeFile(path, JSON.stringify(data, null, 2), (error) => {
+      if (error) {
+        console.log('An error has occurred ', error);
+        return;
+      }
+      console.log('Data written successfully to disk');
+    });
+    //core.setOutput("data", JSON.stringify(data, null, 2));
   } catch (error) {
     core.debug(inspect(error));
     core.setFailed(error.message);
