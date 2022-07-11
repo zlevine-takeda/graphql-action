@@ -29,7 +29,7 @@ async function main() {
       }
       console.log('Data written successfully to disk');
     });
-    //core.setOutput("data", JSON.stringify(data, null, 2));
+    core.setOutput("data", JSON.stringify(data, null, 2));
   } catch (error) {
     core.debug(inspect(error));
     core.setFailed(error.message);
