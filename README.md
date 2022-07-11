@@ -46,7 +46,7 @@ To access deep values of `outputs.data`, use [`fromJSON()`](https://docs.github.
 
 ## Debugging
 
-To see additional debug logs, create a secret with the name: `ACTIONS_STEP_DEBUG` and value `true`.
+Note. To see additional debug logs, create a secret with the name: `ACTIONS_STEP_DEBUG` and value `true`.
 
 ## How it works
 
