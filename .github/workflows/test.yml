@@ -65,7 +65,7 @@ jobs:
 
           [[ ${COMMITS_COUNT} -eq 6 ]] && exit 0 || exit 1
       - id: check_file_existance
-        run: >
+        run: |
           ls
           cat payload.json
 
