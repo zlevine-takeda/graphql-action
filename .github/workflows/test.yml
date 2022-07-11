@@ -64,7 +64,7 @@ jobs:
           '.repository.pullRequest.commits[] | length')
 
           [[ ${COMMITS_COUNT} -eq 6 ]] && exit 0 || exit 1
-      - id: check file existance
+      - id: check_file_existance
         run: >
           ls
           cat payload.json
